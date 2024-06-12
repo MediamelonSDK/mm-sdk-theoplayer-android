@@ -1,0 +1,8 @@
+# configuration file for building snapshots and releases with jitpack.io
+jdk:
+  - openjdk21
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=theoplayer-lib-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.MediamelonSDK -DartifactId=theoplayer-lib-release -Dversion=1.0 -Dpackaging=aar -DgeneratePom=true
